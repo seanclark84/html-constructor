@@ -1,4 +1,4 @@
-package uk.com.slc.html_constructor.entities;
+package uk.co.slc.html_constructor.entities;
 
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;

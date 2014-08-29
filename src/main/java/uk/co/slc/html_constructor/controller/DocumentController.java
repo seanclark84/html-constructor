@@ -1,4 +1,4 @@
-package uk.com.slc.html_constructor.controller;
+package uk.co.slc.html_constructor.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
-import uk.com.slc.html_constructor.entities.Document;
-import uk.com.slc.html_constructor.services.DocumentServiceImpl;
+import uk.co.slc.html_constructor.entities.Document;
+import uk.co.slc.html_constructor.services.DocumentServiceImpl;
 
 @Controller
 public class DocumentController {

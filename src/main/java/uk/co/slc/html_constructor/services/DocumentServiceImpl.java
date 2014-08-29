@@ -1,4 +1,4 @@
-package uk.com.slc.html_constructor.services;
+package uk.co.slc.html_constructor.services;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.neo4j.support.Neo4jTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import uk.com.slc.html_constructor.entities.Document;
+import uk.co.slc.html_constructor.entities.Document;
 
 @Service
 public class DocumentServiceImpl {

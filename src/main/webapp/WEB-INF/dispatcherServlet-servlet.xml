@@ -21,7 +21,7 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <context:component-scan base-package="uk.com.slc.html_constructor.controller"/>
+    <context:component-scan base-package="uk.co.slc.html_constructor.controller"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
 
