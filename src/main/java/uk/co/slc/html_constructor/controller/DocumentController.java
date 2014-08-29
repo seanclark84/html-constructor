@@ -1,7 +1,5 @@
 package uk.co.slc.html_constructor.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
 import uk.co.slc.html_constructor.entities.Document;
+import uk.co.slc.html_constructor.entities.HtmlSectionComponent;
+import uk.co.slc.html_constructor.entities.Section;
 import uk.co.slc.html_constructor.services.DocumentServiceImpl;
 
 @Controller
@@ -18,6 +18,7 @@ public class DocumentController {
 
 	@Autowired
 	private DocumentServiceImpl docService;
+	
 	
 	@RequestMapping(value = "/document/add", method = RequestMethod.GET)
 	public String documentAddGet() {
@@ -29,14 +30,27 @@ public class DocumentController {
 		Document doc = new Document();
 		doc.setName(webRequest.getParameter("name"));
 		doc.setDescription(webRequest.getParameter("description"));
+		
+		Section s = new Section();
+		s.setTitle("Title 1");
+		
+		doc.getSections().add(s);
+		
+		HtmlSectionComponent component = new HtmlSectionComponent();
+		component.setHtml("Some html");
+		HtmlSectionComponent component1 = new HtmlSectionComponent();
+		component1.setHtml("Some other html");
+		
+		s.getComponents().add(component);
+		s.getComponents().add(component1);
+		
 		docService.save(doc);
 		return "redirect:/document/list";
 	}
 	
 	@RequestMapping(value = "/document/list", method = RequestMethod.GET)
 	public String listDocuments(ModelMap map) {
-		List<Document> docs = docService.getAllDocuments();
-		map.put("documents", docs);
+		map.put("documents", docService.getAllDocuments());
 		return "documents/listDocuments";
 	}
 	

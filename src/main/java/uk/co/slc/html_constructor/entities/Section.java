@@ -11,16 +11,14 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
 
 @NodeEntity
-public class Document {
-
+public class Section {
 	@GraphId
 	private Long nodeId;
-
-	private String name;
-	private String description;
+	
+	private String title;
 	@RelatedTo
 	@Fetch
-	private Set<Section> sections = new LinkedHashSet<Section>();
+	private Set<SectionComponent> components = new LinkedHashSet<SectionComponent>();
 
 	public Long getNodeId() {
 		return nodeId;
@@ -30,28 +28,20 @@ public class Document {
 		this.nodeId = nodeId;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public Set<SectionComponent> getComponents() {
+		return components;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Set<Section> getSections() {
-		return sections;
-	}
-
-	public void setSections(Set<Section> sections) {
-		this.sections = sections;
+	public void setComponents(Set<SectionComponent> components) {
+		this.components = components;
 	}
 
 	@Override
@@ -59,9 +49,9 @@ public class Document {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Document doc = (Document) o;
+        Section sec = (Section) o;
         if (nodeId == null) return super.equals(o);
-        return nodeId.equals(doc.nodeId);
+        return nodeId.equals(sec.nodeId);
 
     }
 

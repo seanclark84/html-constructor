@@ -8,26 +8,24 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import uk.co.slc.html_constructor.entities.Document;
+import uk.co.slc.html_constructor.repositories.DocumentRepository;
 
 @Service
+@Transactional
 public class DocumentServiceImpl {
 
 	@Autowired
-	private Neo4jTemplate template;
+	private DocumentRepository documentRepository;
 
-	@Transactional
 	public void save(Document doc) {
-		template.save(doc);
+		documentRepository.save(doc);
 	}
 
-	@Transactional
 	public List<Document> getAllDocuments() {
-		return template.findAll(Document.class).as(List.class);
+		return documentRepository.findAll().as(List.class);
 	}
 
-	@Transactional
 	public void deleteDocument(long id) {
-		Document doc = template.findOne(id, Document.class);
-		template.delete(doc);
+		documentRepository.delete(id);
 	}
 }

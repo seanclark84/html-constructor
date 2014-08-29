@@ -14,6 +14,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
+				<th>Extra</th>
 				<th></th>
 			</tr>
 			<c:forEach items="${documents}" var="doc">
@@ -23,6 +24,14 @@
 				<tr>
 					<td>${doc.name}</td>
 					<td>${doc.description}</td>
+					<td>
+						<c:forEach items="${doc.sections}" var="section">
+							<b>${section.title}</b><br>
+							<c:forEach items="${section.components}" var="component">
+								${component.html}<br/>
+							</c:forEach>
+						</c:forEach>
+					</td>
 					<td><a href="${deleteUrl}">Delete</a></td>
 				</tr>
 			</c:forEach>

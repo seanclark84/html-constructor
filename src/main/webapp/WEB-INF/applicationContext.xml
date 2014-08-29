@@ -16,7 +16,7 @@
     <context:spring-configured/>
 
     <neo4j:config storeDirectory="#{systemProperties['user.home']}/neo4j/graph.db" base-package="uk.co.slc.html_constructor.entities"/>
-<!--     <neo4j:repositories base-package="org.neo4j.cineasts.repository"/> -->
+    <neo4j:repositories base-package="uk.co.slc.html_constructor.repositories" />
 
     <tx:annotation-driven mode="proxy"/>
 
