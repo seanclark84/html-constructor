@@ -1,8 +1,6 @@
 package uk.co.slc.html_constructor.entities;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.neo4j.annotation.Fetch;
@@ -15,9 +13,10 @@ public class Document {
 
 	@GraphId
 	private Long nodeId;
-
+	
 	private String name;
 	private String description;
+
 	@RelatedTo
 	@Fetch
 	private Set<Section> sections = new LinkedHashSet<Section>();

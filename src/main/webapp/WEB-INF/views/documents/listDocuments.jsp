@@ -21,6 +21,7 @@
 				<c:url value="/document/delete" var="deleteUrl">
 					<c:param name="id" value="${doc.nodeId}"/>
 				</c:url>
+				<c:url value="/document/edit/${doc.nodeId}" var="editUrl"/>
 				<tr>
 					<td>${doc.name}</td>
 					<td>${doc.description}</td>
@@ -32,7 +33,10 @@
 							</c:forEach>
 						</c:forEach>
 					</td>
-					<td><a href="${deleteUrl}">Delete</a></td>
+					<td>
+						<a href="${editUrl}">Edit</a>
+						<a href="${deleteUrl}">Delete</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

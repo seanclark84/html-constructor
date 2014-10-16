@@ -28,4 +28,8 @@ public class DocumentServiceImpl {
 	public void deleteDocument(long id) {
 		documentRepository.delete(id);
 	}
+
+	public Document getDocumentById(Long id) {
+		return documentRepository.findOne(id);
+	}
 }
